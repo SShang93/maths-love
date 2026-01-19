@@ -12,6 +12,12 @@ for (let button of buttons) {
       }
     });
 }
+/** Handles the "Enter" key press in the answer box */
+document.getElementById("answer-box").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkAnswer();
+    }
+});
 
 runGame("addition");
 });
@@ -21,6 +27,11 @@ runGame("addition");
  * and after the user's answer has been processed
  */
  function runGame(gameType) {
+/** Resets the answer box and focuses on it */
+document.getElementById("answer-box").value = "";
+
+document.getElementById("answer-box").focus();
+/** Generates two random numbers and displays the question */
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
     if (gameType === "addition") {
